@@ -7,6 +7,10 @@ const operators = document.querySelectorAll('.operator');
 const displayUserNumber = document.querySelector('.display-user-number');
 const displayResult = document.querySelector('.display-result');
 const number = document.querySelectorAll('.number');
+const clearID = document.getElementById('clear');
+const delID = document.getElementById('del');
+const simbolID = document.getElementById('simbol');
+const dotID = document.getElementById('dot');
 var fullNumber = "";
 var operatorName = "";
 var numberInputs = [];
@@ -35,9 +39,15 @@ var operatorObj = {
         return array.slice(array.length-2).reduce((previousNumber,nextNumber)=> previousNumber*nextNumber);
       },
       division: function(array) {
+          if(array.slice(array.length-1) !="0"){
         return array.slice(array.length-2).reduce((previousNumber,nextNumber)=> previousNumber/nextNumber);
+          } else{
+              // !!!!Preciso retornar texto, retirar o ultimo item do index e utilizar o ultimo item do index para a proxima operacao!!!!!
+              return displayUserNumber.textContent="Cant divide by 0!";
+          }
       }
 }
+
 
 
 //Operador + armazenamento dos números digitados
@@ -67,12 +77,46 @@ for (i=0;i<operators.length;i++){
 
 // //Resultado da operação
 resultID.onclick = (function(){
-    numberInputs.push(Number(displayUserNumber.textContent));
-    numberInputs.push(operatorObj[operatorName](numberInputs));
-    fullNumber="";
-    displayResult.textContent="";
-    displayUserNumber.textContent=numberInputs[numberInputs.length-1];
-    operatorName="";
+    if(operatorName!=""){
+        numberInputs.push(Number(displayUserNumber.textContent));
+        numberInputs.push(operatorObj[operatorName](numberInputs));
+        fullNumber="";
+        displayResult.textContent="";
+        displayUserNumber.textContent=numberInputs[numberInputs.length-1];
+        operatorName="";
+    } else{
+        return;
+    }
 })
 
+clearID.onclick = (function(){
+    fullNumber = "";
+    displayResult.textContent = "";
+    displayUserNumber.textContent = "";
+    operatorName = "";
+    numberInputs = [];
+})
 
+delID.onclick = (function(){
+    displayUserNumber.textContent = displayUserNumber.textContent.slice(0,-1);
+    fullNumber = displayUserNumber.textContent;
+})
+
+simbolID.onclick = (function(){
+    if(fullNumber.substring(0,1)!="-"){
+        fullNumber = fullNumber.substring(0, 0) + "-" + fullNumber.substring(0);
+        displayUserNumber.textContent = fullNumber;
+    } else{
+        fullNumber = fullNumber.slice(1);
+        displayUserNumber.textContent = fullNumber;
+    }
+})
+
+dotID.onclick = (function(){
+    if (fullNumber.includes(".")){
+        return;
+    } else{
+        fullNumber = fullNumber.concat(dotID.textContent);
+        displayUserNumber.textContent = fullNumber;
+    }
+})

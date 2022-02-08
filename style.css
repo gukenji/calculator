@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Changa:wght@200&display=swap');
+
 body{
     background-color: black;
     display: flex;
@@ -18,8 +20,8 @@ body{
 }
 
 .calculator{
-    width: 300px;
-    height: 300px;
+    width: 400px;
+    height: 400px;
     background-color: #575757;
     border-radius: 5%;
     box-shadow: 4px 8px #424242;
@@ -34,7 +36,7 @@ body{
     justify-content: center;
     align-self:center;
     width: 90%;
-    height: 40px;  
+    height: 70px;  
     background-color: #bbd0bf;
     flex-direction: column;
     margin-top:5px;
@@ -48,12 +50,17 @@ body{
     height: 50%; 
     display: flex;
     justify-content: flex-end;
+    font-size: 25px;
+    font-family: 'Changa', sans-serif;
 }
 .display-user-number{
     width: 95%;
     height: 50%;     
     display: flex;
     justify-content: flex-end;
+    font-size: 21px;
+    font-family: 'Changa', sans-serif;
+
 }
 
 .input{
@@ -67,14 +74,87 @@ body{
 
 }
 
-.key{
+
+.input-superior{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 5px;    
+    height:60%;
+
+}
+.input-inferior{
+    display:flex;
+    flex-wrap: wrap;
+    column-gap: 5px;
+    flex: 1 0 70%;
+    row-gap: 0px;
+
+}
+
+.input-inferior-canvas{
+    display: flex;
+    gap: 5px;
+    height:40%;
+    
+}
+
+.key-up{
     background-color: white;
     width: 50px;
-    height: 40px;
+    height: 50px;
     border-radius: 10px 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: 2px 2px #a1a1a1;
-    flex: 1 0 20%
+    flex: 1 0 20%;
+    font-family: 'Changa', sans-serif;
+    cursor: pointer;
+}
+
+.key-down{
+    background-color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 2px #a1a1a1;
+    flex: 1 0 27%;
+    font-family: 'Changa', sans-serif;
+    cursor: pointer;
+}
+
+#result{
+    background-color: #f5853b;
+    box-shadow: 2px 2px #f5853bb2;
+    width: 50px;
+    height: 113px;
+    border-radius: 10px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1 0 20%;
+    color:white;
+    font-size: 26px;
+    cursor: pointer;
+    
+}
+
+#division,
+#multiply,
+#subtract,
+#sum{
+    background-color: #f5853b;
+    box-shadow: 2px 2px #f5853bb2;
+    color:white;
+    font-size: 26px;
+}
+
+#clear,
+#simbol{
+    font-size: 26px;
+    background-color: #a5a5a5;
+    box-shadow: 2px 2px #a5a5a59f;
 }
