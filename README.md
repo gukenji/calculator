@@ -1,6 +1,6 @@
-# calculator
+# Calculator
 Projeto que visa criar uma calculadora funcional.
-Requisitos:
+## Requisitos
 1. Ela deve possuir as seguintes funções:
     a. Adição;
     b. Subtração;
@@ -15,7 +15,7 @@ primeiro calcular o primeiro par de números (12+7), mostrar o resultado (19) e,
 6. Mostrar erro caso usuário queira dividir por 0;
 
 
-EXTRA:
+**EXTRA**
 1. Incluir números não inteiros (.). Não deixar digitar coisas como 12.1.3.3;
 2. Tenta deixar bonito! Ao menos colocar uma cor diferente para cada botão de operador;
 3. Incluir opção de excluir o último número digitado;
